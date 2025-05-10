@@ -24,6 +24,8 @@ class RoomFactory extends Factory
             'free_breakfast' =>fake()->boolean(),
             'free_cancellation' => fake()->boolean(),
             'no_prepayment' => fake()->boolean(),
+            'price_per_night' => fake()->numberBetween(50,1000),
+            'minimum_price' => fake()->numberBetween(50,100),
             'service_charge' => 0.08,
             'city_tax' => 0.04,
         ];

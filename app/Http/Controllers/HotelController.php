@@ -26,7 +26,7 @@ class HotelController extends Controller
     $query->orderBy('rating', 'desc');
 
     // Redirect if required parameters are missing
-    if (!request()->filled(['destination', 'dates', 'adults', 'children', 'rooms'])) {
+    if (!request()->filled(['destination', 'dates'])) {
         return redirect('/');
     }
 
@@ -78,9 +78,9 @@ class HotelController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Hotel $hotel)
     {
-        //
+        return view('hotel.create',['hotel'=>$hotel]);
     }
 
     /**
@@ -88,7 +88,21 @@ class HotelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required|min:10|max:30',
+            'description' => 'required|min:50',
+            'rating' => 'required',
+            'rating_score' => 'required',
+            'city' => 'nullable|min:5|max:20',
+            'Governorate' => 'required|min:5',
+            'distance_from_downtown' => 'required|numeric|min:0',
+            'url' => 'nullable|url',
+            'stars' => 'required|integer|min:1|max:5'
+        ]);
+
+        Hotel::create($data);
+
+        return redirect('/')->with('success','Hotel Create!');
     }
 
     /**

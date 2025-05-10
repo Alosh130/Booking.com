@@ -13,6 +13,11 @@ class Hotel extends Model
     /** @use HasFactory<\Database\Factories\HotelFactory> */
     use HasFactory;
 
+    public $fillable = [
+        'name', 'description', 'rating', 'rating_score', 'Governorate', 
+        'distance_from_downtown', 'city', 'url', 'stars'
+    ];
+
     public static $rating_scores =
     [
         9.0 => 'Wonderful',

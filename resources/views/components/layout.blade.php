@@ -46,7 +46,7 @@
                         <i class="fa-solid fa-dollar-sign mr-2"></i>
                         <span>USD</span>
                     </button>
-                    <a href="#" class="text-slate-700 hover:text-blue-600">List your property</a>
+                    <a href="/pick_a_property?" class="text-slate-700 hover:text-blue-600">List your property</a>
                 </div>
             </div>
             
