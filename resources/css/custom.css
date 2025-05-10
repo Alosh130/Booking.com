@@ -1,0 +1,51 @@
+.btn {
+  @apply bg-white text-slate-600 hover:text-slate-800 hover:bg-slate-100 rounded-md px-4 py-2 h-10 text-sm font-medium shadow ring-1 ring-slate-300 transition duration-150;
+}
+
+.input {
+  @apply border border-slate-300 w-full px-3 py-2 rounded-md text-sm text-slate-700 placeholder-slate-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-500;
+}
+
+.filter-container {
+  @apply mb-4 flex space-x-2 rounded-md bg-slate-100 p-2;
+}
+
+.filter-item {
+  @apply flex w-full items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-slate-500 hover:bg-white hover:shadow;
+}
+
+.filter-item-active {
+  @apply bg-white text-slate-800 shadow flex w-full items-center justify-center rounded-md px-4 py-2 text-sm font-medium;
+}
+
+.book-item {
+  @apply bg-white text-slate-900 text-sm leading-6 rounded-md shadow ring-1 ring-slate-200 p-4;
+}
+
+.book-title {
+  @apply text-lg font-semibold text-slate-800 hover:text-slate-600;
+}
+
+.book-author {
+  @apply block text-slate-600 text-sm;
+}
+
+.book-rating {
+  @apply text-sm font-medium text-slate-700;
+}
+
+.book-review-count {
+  @apply text-xs text-slate-500;
+}
+
+.empty-book-item {
+  @apply bg-white text-slate-900 text-center text-sm leading-6 rounded-md shadow ring-1 ring-slate-200 py-10 px-4;
+}
+
+.empty-text {
+  @apply text-slate-500 font-medium;
+}
+
+.reset-link {
+  @apply text-slate-500 underline hover:text-slate-700;
+}

@@ -1,0 +1,45 @@
+@import 'tailwindcss';
+@import './custom.css';
+@source '../views';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+.booking-shadow {
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
+}
+
+.booking-search-shadow {
+    box-shadow: 0 2px 8px rgba(26, 43, 73, 0.16);
+}
+
+.pointer {cursor: pointer;}
+.progress{cursor:progress;}
+
+/* Datepicker overrides */
+.air-datepicker {
+    --adp-background-color: #fff;
+    --adp-background-color-hover: #f0f7ff;
+    --adp-background-color-active: #0066ff;
+    --adp-color: #1a2b49;
+    --adp-accent-color: #0066ff;
+    --adp-cell-background-color-selected: #0066ff;
+}
+
+
+.flatpickr-calendar {
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    z-index: 1 !important;
+}
+.default{
+    cursor:default;
+}
