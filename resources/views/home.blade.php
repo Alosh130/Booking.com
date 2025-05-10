@@ -141,4 +141,5 @@
             </div>
         </form>
     </article>
+    <h1>This is the laptop</h1>
 </x-layout>
