@@ -142,4 +142,5 @@
         </form>
     </article>
     <h1>This is the laptop</h1>
+    <h2>This is the PC</h2>
 </x-layout>
