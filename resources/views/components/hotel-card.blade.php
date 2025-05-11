@@ -58,8 +58,10 @@
         </div>
         <div>
             <p class="text-xs text-gray-600">{{$diffInDays}} {{Str::plural('night',$diffInDays)}}, {{request('adults')}} {{Str::plural('adult',request('adults'))}} {{request('children')? ','.request('children').' '.Str::plural('child',request('children')) :''}} </p>
+            @if($hotel->rooms()->exists())
             <p class="text-md font-bold text-gray-800">JOD {{$hotel->rooms()->latest()->first()->calculatePrice($date1,$date2,request('rooms'))}}</p>
             <p class="text-xs text-gray-500">+JOD {{round($hotel->rooms()->latest()->first()->calculatePrice($date1,$date2,request('rooms')) * ($hotel->rooms()->latest()->first()->service_charge + $hotel->rooms()->latest()->first()->city_tax))}} taxes and fees</p>
+            @endif
         </div>
         {{$slot}}
     </div>
