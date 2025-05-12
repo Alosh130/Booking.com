@@ -33,7 +33,7 @@
                     <x-label for="Governorate" :required="true">State/Governorate:</x-label>
                     <x-text-input type="text" name="Governorate" required/>
 
-                    <x-label for="url">Hotel Image:(URL)</x-label>
+                    <x-label for="url" :required="false">Hotel Image:(URL)</x-label>
                     <x-text-input type="url" name="url"/>
 
                     <x-label for="stars" :required="true">Number of Stars:</x-label>
