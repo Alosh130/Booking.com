@@ -209,6 +209,8 @@ class HotelSeeder extends Seeder
                     'custom_multiplier' => null 
                 ]);
             }
+
+            Facility::factory()->create($reviews_no);
         }
     }
 }

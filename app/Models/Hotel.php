@@ -38,6 +38,10 @@ class Hotel extends Model
         return $this->hasMany(Service::class);
     }
 
+    public function facilies():HasMany{
+        return $this->hasMany(facility::class);
+    }
+
     private function dateRangeFilter(Builder $query,$from = null, $to = null){
         if($from && !$to){
             $query->where('created_at','>=',$from);
