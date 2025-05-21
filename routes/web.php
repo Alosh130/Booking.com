@@ -9,7 +9,7 @@ Route::resource('hotels',HotelController::class)
 ->only(['index','show','create','store']);
 
 Route::resource('hotels.reviews',ReviewController::class)
-->only(['index']);
+->only(['index','create','store']);
 
 Route::get('/', function () {
     return view('home');

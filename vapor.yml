@@ -1,0 +1,11 @@
+id: 71292
+name: Bookingcom
+environments:
+  production:
+    memory: 2048
+    cli-memory: 2048
+    runtime: php-8.2:al2
+    build:
+      - composer install --no-dev
+      - php artisan event:cache
+      - npm ci && npm run build

@@ -1,4 +1,4 @@
-@vite(['resources/js/index.js', 'resources/css/app.css'])
+@vite(['resources/js/app.js', 'resources/css/app.css'])
 <x-layout>
 
     {{-- Search Form --}}
@@ -141,6 +141,4 @@
             </div>
         </form>
     </article>
-    <h1>This is the laptop</h1>
-    <h2>This is the PC</h2>
 </x-layout>

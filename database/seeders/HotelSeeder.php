@@ -10,6 +10,7 @@ use App\Models\Room;
 use App\Models\Service;
 use App\Models\Season;
 use Carbon\Carbon;
+use App\Models\facility;
 class HotelSeeder extends Seeder
 {
     /**
@@ -203,14 +204,27 @@ class HotelSeeder extends Seeder
             });
             
             
-            
             foreach($rooms as $room) {
                 $room->seasons()->attach($allSeasons->pluck('id')->toArray(), [
                     'custom_multiplier' => null 
                 ]);
             }
 
-            Facility::factory()->create($reviews_no);
+            shuffle(facility::$icons); // Randomize icon order
+            $selectedIcons = array_slice(facility::$icons, 0, 3); // Pick 3 unique ones
+
+            shuffle(facility::$names); // Randomize icon order
+            $selectedNames = array_slice(facility::$names, 0, 3); // Pick 3 unique ones
+
+            foreach ($selectedIcons as  $icon) {
+                Facility::factory()->create([
+                    'name' =>facility::$names[$icon],
+                    'hotel_id' => $newHotel->id,
+                    'icon' => $icon,
+                ]);
+            }
+
+            
         }
     }
 }

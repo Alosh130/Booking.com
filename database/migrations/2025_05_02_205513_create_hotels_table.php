@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('city')->nullable();
             $table->string('Governorate');
             $table->decimal('distance_from_downtown',3,1);
-            $table->string('url');
+            $table->string('url')->nullable();
             $table->boolean('recommended')->default(false);
             $table->unsignedBigInteger('stars')->nullable();
             $table->timestamps();

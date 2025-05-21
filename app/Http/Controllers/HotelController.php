@@ -91,7 +91,7 @@ class HotelController extends Controller
         $data = $request->validate([
             'name' => 'required|min:10|max:30',
             'description' => 'required|min:50',
-            'rating' => 'required',
+            'rating' => 'required|numeric',
             'rating_score' => 'required',
             'city' => 'nullable|min:5|max:20',
             'Governorate' => 'required|min:5',
@@ -102,7 +102,7 @@ class HotelController extends Controller
 
         Hotel::create($data);
 
-        return redirect('/')->with('success','Hotel Create!');
+        return redirect('/')->with('success','Hotel Created!');
     }
 
     /**

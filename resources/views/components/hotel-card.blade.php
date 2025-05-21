@@ -28,8 +28,10 @@
                 </div>
             </div>
         <div class="mt-3">
+            @if($hotel->rooms()->exists())
             <p class="font-semibold text-blue-700 text=sm">{{$hotel->rooms()->latest()->pluck('room_type')->first()}}</p>
             <p class="text-xs text-gray-600"> 1 double or 2 twins</p>
+            @endif
         </div>
         <div class="mt-2 text-green-600 text-xs space-y-0.5">
             <x-tag :$hotel/>

@@ -19,17 +19,23 @@ class ReviewController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Hotel $hotel)
     {
-        //
+        return view('hotel.reviews.create',['hotel'=>$hotel]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request,Hotel $hotel)
     {
-        //
+        $data = $request->validate([
+            'review' => 'required|min:15',
+            'rating' => 'required|min:1|max:5|integer'
+        ]);
+
+        $hotel->reviews()->create($data);
+        return redirect()->route('hotels.reviews.index', $hotel)->with('success', 'Review created successfully');
     }
 
     /**

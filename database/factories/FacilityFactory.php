@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\facility;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\facility>
@@ -17,9 +18,10 @@ class FacilityFactory extends Factory
     public function definition(): array
     {
         return [
+            'hotel_id' =>null,
             'name' => fake()->name,
             'free' => fake()->boolean(),
-            'icon' => fake()->randomElement()
+            'icon' => fake()->randomElement(facility::$icons),
         ];
     }
 }

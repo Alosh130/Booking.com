@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Query\Builder as QueryBuilder;
 
 class Hotel extends Model
@@ -38,7 +39,7 @@ class Hotel extends Model
         return $this->hasMany(Service::class);
     }
 
-    public function facilies():HasMany{
+    public function facilties():HasMany{
         return $this->hasMany(facility::class);
     }
 

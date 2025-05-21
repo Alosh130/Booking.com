@@ -1,4 +1,4 @@
-@vite(['resources/js/index.js', 'resources/css/app.css'])
+@vite(['resources/js/app.js', 'resources/css/app.css'])
 
 <x-layout>
         
@@ -219,9 +219,13 @@
             @forelse ($hotels as $hotel)
                 <x-hotel-card :$hotel>
                     <div class="mt-4">
+                        @if($hotel->rooms()->exists())
                         <x-link-button :href="route('hotels.show', $hotel).'?'.'destination='.request('destination').'&'.'dates='.request('dates').'&'.'adults='.request('adults').'&'.'children='.request('children').'&'.'rooms='.request('rooms')">
                             See availability
                         </x-link-button>
+                        @else
+                        <p class="text-red-400 btn pointer default">No rooms available</p>
+                        @endif
                     </div>
                 </x-hotel-card>
             @empty
