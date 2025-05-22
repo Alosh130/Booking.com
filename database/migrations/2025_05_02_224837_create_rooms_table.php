@@ -14,16 +14,13 @@ return new class extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('hotel_id');
-            $table->string('room_type');
-            $table->string('bed_type');
-            $table->string('num_of_beds');
-            $table->boolean('free_breakfast')->default(false);
-            $table->boolean('free_cancellation');
-            $table->boolean('no_prepayment');
+            $table->string('room_name');
+            $table->boolean('breakfast');
+            $table->string('cancellation_policy');
             $table->unsignedInteger('price_per_night')->default(100);
             $table->unsignedInteger('minimum_price')->default(0);
-            $table->decimal('service_charge',2,2);
-            $table->decimal('city_tax',2,2);
+            $table->decimal('service_charge',8,2);
+            $table->decimal('city_tax',8,2);
             $table->timestamps();
 
             $table->foreign('hotel_id')->references('id')->on('hotels')

@@ -224,7 +224,8 @@
                             See availability
                         </x-link-button>
                         @else
-                        <p class="text-red-400 btn pointer default">No rooms available</p>
+                        <p class="text-red-400 pointer default mb-4">No rooms available</p>
+                        <a href="{{route('hotels.rooms.create',['hotel'=>$hotel])}}" class="btn bg-blue-600 hover:bg-blue-700 hover:text-white text-white transition-colors">Add rooms</a>
                         @endif
                     </div>
                 </x-hotel-card>

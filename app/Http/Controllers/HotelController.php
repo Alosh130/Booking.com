@@ -89,11 +89,11 @@ class HotelController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required|min:10|max:30',
+            'name' => 'required|min:10|max:255',
             'description' => 'required|min:50',
-            'rating' => 'required|numeric',
+            'rating' => 'required',
             'rating_score' => 'required',
-            'city' => 'nullable|min:5|max:20',
+            'city' => 'nullable|min:5|max:30',
             'Governorate' => 'required|min:5',
             'distance_from_downtown' => 'required|numeric|min:0',
             'url' => 'nullable|url',

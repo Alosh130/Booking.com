@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -10,6 +11,9 @@ Route::resource('hotels',HotelController::class)
 
 Route::resource('hotels.reviews',ReviewController::class)
 ->only(['index','create','store']);
+
+Route::resource('hotels.rooms',RoomController::class)
+->only(['create','store']);
 
 Route::get('/', function () {
     return view('home');

@@ -14,6 +14,14 @@ class Room extends Model
     /** @use HasFactory<\Database\Factories\RoomFactory> */
     use HasFactory;
 
+    protected $fillable = [
+        'room_name',
+        'price_per_night',
+        'cancellation_policy',
+        'breakfast',
+        'city_tax',
+        'service_charge',
+    ];
     
 
         
@@ -65,6 +73,10 @@ class Room extends Model
         ->withPivot('custom_multiplier')
         ->withTimestamps();
     }   
+
+    public function beds():HasMany{
+        return $this->hasMany(Bed::class);
+    }
 
     public function calculatePrice($checkIn,$checkOut,$roomCount = 1){
         $days = Carbon::parse($checkIn)->diffInDays($checkOut);
