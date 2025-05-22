@@ -1,4 +1,9 @@
-<x-card class="mb-4">
+<style>
+    .booking-details{
+        border-left:2.3px solid gray;
+    }
+</style>
+<x-card class="mb-4 bg-white">
     <img class="w-1/4 object-cover rounded-md" src="{{ $hotel->url }}" alt="{{ $hotel->name }}">
 
     <div class="p-2 flex-1 space-y-1">
@@ -27,7 +32,8 @@
 
                 </div>
             </div>
-        <div class="mt-3">
+            <div class="booking-details pl-2 ml-2">
+                <div class="mt-3">
             @if($hotel->rooms()->exists())
             @php
                 $latestRoom = $hotel->rooms()->latest()->first();
@@ -38,17 +44,18 @@
                     return $quantity . ' ' . $type . ' bed' . ($quantity > 1 ? 's' : '');
                 })
                 ->values()
-                ->implode(' and ')
+                ->implode(" and \n")
             @endphp
-            <p class="font-semibold text-blue-700 text=sm">{{$latestRoom->room_name}}</p>
-            <p class="text-xs text-gray-600">
-                {{$bedSummary}}
+            <p class="font-bold text-blue-700 text-md">{{$latestRoom->room_name}}</p>
+            <p class="text-xs font-semibold text-gray-600">
+                {!! nl2br(e($bedSummary)) !!}
                 </p>
             @endif
         </div>
         <div class="mt-2 text-green-600 text-xs space-y-0.5">
             <x-tag :$hotel/>
         </div>
+            </div>
     </div>
     @php
     $diffInDays = 1;

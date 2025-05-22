@@ -66,13 +66,13 @@
                             <button type="button" 
                                     @click="adults > 1 ? adults-- : null"
                                     class="w-8 h-8 rounded-full border border-slate-300 flex items-center justify-center hover:bg-slate-100">
-                                <i class="fa-solid fa-minus text-xs"></i>
+                                <i class="fa-solid fa-minus text-xs" style="color:red"></i>
                             </button>
                             <span x-text="adults" class="w-6 text-center"></span>
                             <button type="button" 
                                     @click="adults++"
                                     class="w-8 h-8 rounded-full border border-slate-300 flex items-center justify-center hover:bg-slate-100">
-                                <i class="fa-solid fa-plus text-xs"></i>
+                                <i class="fa-solid fa-plus text-xs" style="color:green"></i>
                             </button>
                         </div>
                     </div>
@@ -87,13 +87,13 @@
                             <button type="button" 
                                     @click="children > 0 ? children-- : null"
                                     class="w-8 h-8 rounded-full border border-slate-300 flex items-center justify-center hover:bg-slate-100">
-                                <i class="fa-solid fa-minus text-xs"></i>
+                                <i class="fa-solid fa-minus text-xs" style="color:red"></i>
                             </button>
                             <span x-text="children" class="w-6 text-center"></span>
                             <button type="button" 
                                     @click="children++"
                                     class="w-8 h-8 rounded-full border border-slate-300 flex items-center justify-center hover:bg-slate-100">
-                                <i class="fa-solid fa-plus text-xs"></i>
+                                <i class="fa-solid fa-plus text-xs" style="color:green"></i>
                             </button>
                         </div>
                     </div>
@@ -107,13 +107,13 @@
                             <button type="button" 
                                     @click="rooms > 1 ? rooms-- : null"
                                     class="w-8 h-8 rounded-full border border-slate-300 flex items-center justify-center hover:bg-slate-100">
-                                <i class="fa-solid fa-minus text-xs"></i>
+                                <i class="fa-solid fa-minus text-xs" style="color:red"></i>
                             </button>
                             <span x-text="rooms" class="w-6 text-center"></span>
                             <button type="button" 
                                     @click="rooms++"
                                     class="w-8 h-8 rounded-full border border-slate-300 flex items-center justify-center hover:bg-slate-100">
-                                <i class="fa-solid fa-plus text-xs"></i>
+                                <i class="fa-solid fa-plus text-xs" style="color:green"></i>
                             </button>
                         </div>
                     </div>
@@ -135,7 +135,7 @@
             <div class="flex items-center space-x-4">
                 <a href="{{ route('hotels.index') }}" class="text-sm text-blue-600 hover:underline">Clear</a>
                 <button type="submit" 
-                        class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors text-sm font-medium h-10">
+                        class="flex-1 bg-blue-600 text-white py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition">
                     Search
                 </button>
             </div>
