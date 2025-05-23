@@ -1,12 +1,12 @@
 <x-layout>
-    <div class="max-w-lg mx-auto bg-white rounded-2xl shadow-lg p-6">
-        <h2 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Create Your Account</h2>
+    <div class="max-w-lg mx-auto bg-slate-800 rounded-2xl shadow-lg p-6">
+        <h2 class="text-2xl font-semibold text-white mb-6 text-center">Create Your Account</h2>
         <form action="{{ route('register.store') }}" method="post" class="space-y-6" x-data>
             @csrf
 
             <!-- Name -->
             <div>
-                <x-input-label for="name" :value="__('Full Name')" />
+                <x-input-label for="name" :value="__('Full Name')"/>
                 <x-text-input
                     id="name"
                     name="name"
@@ -18,7 +18,6 @@
                     autocomplete="name"
                     class="mt-1"
                 />
-                @error('name') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
             </div>
 
             <!-- Email -->
@@ -34,7 +33,6 @@
                     autocomplete="username"
                     class="mt-1"
                 />
-                @error('email') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
             </div>
 
             <!-- Password -->
@@ -48,11 +46,11 @@
                         placeholder="••••••••"
                         required
                         autocomplete="new-password"
-                        class="flex-grow px-3 py-2 text-sm text-gray-900 placeholder-gray-400 focus:outline-none"
+                        class="flex-grow px-3 py-2 text-sm text-white placeholder-gray-400 focus:outline-none"
                     />
                     <button
                         type="button"
-                        class="px-3 bg-white border-l border-gray-300 flex items-center justify-center text-gray-400 hover:text-gray-600 focus:outline-none"
+                        class="px-3 pointer bg-slate-800 border-l border-gray-300 flex items-center justify-center text-gray-400 hover:text-gray-600 focus:outline-none"
                         @click="showPassword = !showPassword"
                         tabindex="-1"
                     >
@@ -60,7 +58,6 @@
                         <i x-show="showPassword" class="fa-solid fa-eye-slash"></i>
                     </button>
                 </div>
-                @error('password') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
             </div>
 
             <!-- Confirm Password -->
@@ -74,11 +71,11 @@
                         placeholder="••••••••"
                         required
                         autocomplete="new-password"
-                        class="flex-grow px-3 py-2 text-sm text-gray-900 placeholder-gray-400 focus:outline-none"
+                        class="flex-grow px-3 py-2 text-sm text-white placeholder-gray-400 focus:outline-none"
                     />
                     <button
                         type="button"
-                        class="px-3 bg-white border-l border-gray-300 flex items-center justify-center text-gray-400 hover:text-gray-600 focus:outline-none"
+                        class="px-3 pointer bg-slate-800 border-l border-gray-300 flex items-center justify-center text-gray-400 hover:text-gray-600 focus:outline-none"
                         @click="showConfirm = !showConfirm"
                         tabindex="-1"
                     >
@@ -86,7 +83,6 @@
                         <i x-show="showConfirm" class="fa-solid fa-eye-slash"></i>
                     </button>
                 </div>
-                @error('password_confirmation') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
             </div>
 
             <!-- Terms -->
@@ -101,11 +97,10 @@
                     I agree to the <a href="#" class="text-indigo-600 hover:underline">Terms of Service</a>
                 </label>
             </div>
-            @error('terms') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
 
             <!-- Submit -->
             <div class="text-center">
-                <x-primary-button class="w-full">
+                <x-primary-button class="w-full pointer">
                     {{ __('Register') }}
                 </x-primary-button>
             </div>

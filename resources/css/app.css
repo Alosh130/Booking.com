@@ -25,8 +25,8 @@
 
 /* Datepicker overrides */
 .air-datepicker {
-    --adp-background-color: #fff;
-    --adp-background-color-hover: #f0f7ff;
+    --adp-background-color: var(--color-slate-800);
+    --adp-background-color-hover: var(--color-slate-800);
     --adp-background-color-active: #0066ff;
     --adp-color: #1a2b49;
     --adp-accent-color: #0066ff;
@@ -34,12 +34,7 @@
 }
 
 
-.flatpickr-calendar {
-    left: auto !important;
-    right: auto !important;
-    transform: none !important;
-    z-index: 1 !important;
-}
+
 .default{
     cursor:default;
 }
@@ -50,4 +45,32 @@
 
 .property-card:hover {
     transform: translateY(-2px);
+}
+.daterangepicker td.available,
+.daterangepicker td.in-range,
+.daterangepicker td.active,
+.daterangepicker td.start-date,
+.daterangepicker td.end-date {
+    background-color: #1e293b !important; /* Tailwind bg-slate-800 */
+    color: #cbd5e1 !important; /* Tailwind text-slate-300 */
+    border-radius: 0.375rem !important; /* rounded-md */
+}
+
+.daterangepicker td.available:hover {
+    background-color: #334155 !important; /* Tailwind bg-slate-700 */
+    color: #ffffff !important;
+}
+.daterangepicker td.off.available {
+    background-color: #1e293b !important;
+    color: #64748b !important; /* Tailwind's text-slate-400 */
+}
+.daterangepicker td.available:hover,
+.daterangepicker td.off.available:hover {
+    background-color: #334155 !important; /* Tailwind's bg-slate-700 */
+    color: #f1f5f9 !important; /* Tailwind's text-slate-50 */
+}
+.daterangepicker td.available,
+.daterangepicker td.off {
+    background-color: #1e293b !important; /* Tailwind's bg-slate-800 */
+    color: #cbd5e1 !important; /* Tailwind's text-slate-300 */
 }

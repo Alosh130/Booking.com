@@ -1,9 +1,9 @@
 <x-layout>
-    <div class="max-w-4xl mx-auto  bg-white  shadow-md rounded-lg p-8">
-        <h1 class="text-2xl font-semibold text-slate-800  mb-6">Create a New Hotel</h1>
+    <div class="max-w-4xl mx-auto  bg-slate-800 text-white  shadow-md rounded-lg p-8">
+        <h1 class="text-2xl font-semibold  mb-6">Create a New Hotel</h1>
         <form action="{{ route('hotels.store', $hotel) }}" method="POST">
             @csrf
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-black">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Left Column -->
                 <div class="space-y-4">
                     <x-label for="name" :required="true">Name:</x-label>
@@ -25,7 +25,7 @@
                     <x-text-input name="rating" type="number" min="0" max="10" step="0.1" required />
 
                     <x-label for="rating_score" :required="true">Rating Score:</x-label>
-                    <select name="rating_score" id="rating_score" class="w-full rounded-md border-0 py-1.5 px-2.5 text-sm ring-1 ring-slate-300 focus:ring-2 focus:ring-blue-500 bg-white " required>
+                    <select name="rating_score" id="rating_score" class="w-full bg-slate-800 rounded-md border-0 py-1.5 px-2.5 text-sm ring-1 ring-slate-300 focus:ring-2 focus:ring-blue-500 " required>
                         <option value="">Select A Rating Score</option>
                         <option value="Exceptional">Exceptional: 10+</option>
                         <option value="Wonderful">Wonderful: 9+</option>
@@ -46,7 +46,7 @@
             </div>
 
             <div class="mt-8 text-right">
-                <button type="submit" class="btn bg-blue-600 text-white hover:bg-blue-700 px-6 py-2 rounded-md shadow">Create Hotel</button>
+                <x-primary-button type="submit" class="bg-blue-600 text-white hover:bg-blue-700 px-6 py-2 rounded-md shadow">Create Hotel</x-primary-button>
             </div>
         </form>
     </div>

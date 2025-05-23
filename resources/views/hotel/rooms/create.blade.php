@@ -3,14 +3,14 @@
     Add Room for <span class="text-slate-600 underline">{{ $hotel->name }}</span>
   </h1>
 
-  <form action="{{ route('hotels.rooms.store', ['hotel' => $hotel]) }}" method="POST" class="bg-white p-4 rounded-md space-y-8">
+  <form action="{{ route('hotels.rooms.store', ['hotel' => $hotel]) }}" method="POST" class="bg-slate-800 p-4 rounded-md space-y-8">
     @csrf
 
     <!-- Room Details Section -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div class="space-y-4 text-black">
         <x-label for="room_name" :required="true">Room Name:</x-label>
-        <select name="room_name" id=":rfq:" class="input w-full">
+        <select name="room_name" id=":rfq:" class="input bg-slate-800 w-full">
             <option value="">Select a name for the room </option>
             <option value="Twin Room" data-key="recommended#1421">Twin Room</option>
             <option value="Twin Room with Private Bathroom" data-key="recommended#6972">Twin Room with Private Bathroom</option>
@@ -70,7 +70,7 @@
 
       <div class="space-y-4 text-black">
         <x-label for="cancellation_policy" :required="true">Cancellation Policy:</x-label>
-        <select name="cancellation_policy" id="cancellation_policy" class="input w-full" required>
+        <select name="cancellation_policy" id="cancellation_policy" class="input bg-slate-800 w-full" required>
           <option value="">Select Policy</option>
           <option value="Free cancellation">Free cancellation</option>
           <option value="Non-refundable">Non-refundable</option>
@@ -78,7 +78,7 @@
         </select>
 
         <x-label for="breakfast" :required="true">Breakfast Option:</x-label>
-        <select name="breakfast" id="breakfast" class="input w-full" required>
+        <select name="breakfast" id="breakfast" class="input bg-slate-800 w-full" required>
           <option value="">Select Option</option>
           <option value="1">Free Breakfast</option>
           <option value="0">Paid Breakfast</option>
@@ -90,14 +90,14 @@
     </div>
 
     <!-- Bed Configuration Section -->
-    <div class="pt-6 border-t text-black">
+    <div class="pt-6 border-t text-white">
       <h3 class="text-lg font-semibold mb-4">Bed Configuration</h3>
 
       <div id="bed-configurations" class="space-y-6">
         <div class="bed-configuration grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>
             <x-label for="bed_type_1" :required="true">Bed Type:</x-label>
-            <select name="bed_configurations[0][bed_type]" id="bed_type_1" class="input w-full" onchange="toggleCustomBedInput(this, 1)" required>
+            <select name="bed_configurations[0][bed_type]" id="bed_type_1" class="input bg-slate-800 w-full" onchange="toggleCustomBedInput(this, 1)" required>
               <option value="">Select Bed Type</option>
               <option value="twin">Twin</option>
               <option value="full">Full</option>
@@ -119,13 +119,13 @@
         </div>
       </div>
 
-      <button type="button" id="add-bed-btn" class="mt-4 text-blue-600 hover:underline text-sm font-medium">
+      <button type="button" id="add-bed-btn" class="mt-4 pointer text-blue-600 hover:underline text-sm font-medium">
         + Add Another Bed
       </button>
     </div>
 
     <div>
-      <button type="submit" class="btn btn-primary">Create Room</button>
+      <x-primary-button type="submit" class="pointer">Create Room</x-primary-button>
     </div>
   </form>
 

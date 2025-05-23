@@ -3,7 +3,7 @@
 }
 
 .input {
-  @apply border border-slate-300 w-full px-3 py-2 rounded-md text-sm text-slate-700 placeholder-slate-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-500;
+  @apply border border-slate-300 w-full px-3 py-2 rounded-md text-sm text-white placeholder-slate-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-500;
 }
 
 .filter-container {
@@ -39,11 +39,11 @@
 }
 
 .empty-book-item {
-  @apply bg-white text-slate-900 text-center text-sm leading-6 rounded-md shadow ring-1 ring-slate-200 py-10 px-4;
+  @apply bg-slate-800 text-slate-900 text-center text-sm leading-6 rounded-md shadow ring-1 ring-slate-700 py-10 px-4;
 }
 
 .empty-text {
-  @apply text-slate-500 font-medium;
+  @apply text-white font-medium;
 }
 
 .reset-link {

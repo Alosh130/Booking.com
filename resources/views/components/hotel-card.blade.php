@@ -3,12 +3,13 @@
         border-left:2.3px solid gray;
     }
 </style>
-<x-card class="mb-4 bg-white">
-    <img class="w-1/4 object-cover rounded-md" src="{{ $hotel->url }}" alt="{{ $hotel->name }}">
+
+<x-card class="mb-4 bg-slate-800">
+    <img class="w-1/4 object-cover rounded-l-md" src="{{ $hotel->url }}" alt="{{ $hotel->name }}">
 
     <div class="p-2 flex-1 space-y-1">
             <div>
-                <h2 class="text-md font-bold text-blue-900">{{ $hotel->name }}</h2>
+                <h2 class="text-md font-bold text-blue-700">{{ $hotel->name }}</h2>
                 <div class="flex items-center space-x-1 text-yellow-500 text-xs mt-1">
                     <span>
                         <x-star-rating :stars="$hotel->stars"/>
@@ -24,8 +25,8 @@
                         {{ $hotel->city ? $hotel->city . ', ' : '' }}
                         {{ $hotel->Governorate }}
                     </a>
-                    · <a href="#" target="_blank" class="underline">Show on map</a>
-                    · {{ $hotel->distance_from_downtown }} km from downtown
+                    <span class="text-white font-bold">·</span> <a href="#" target="_blank" class="underline">Show on map</a>
+                     <span class="text-white font-bold">·</span> <span class="text-white">{{ $hotel->distance_from_downtown }} km from downtown</span> 
                 </p>
                 <!--Amenities-->
                 <div>
@@ -46,8 +47,8 @@
                 ->values()
                 ->implode(" and \n")
             @endphp
-            <p class="font-bold text-blue-700 text-md">{{$latestRoom->room_name}}</p>
-            <p class="text-xs font-semibold text-gray-600">
+            <p class="font-bold text-white text-sm">{{$latestRoom->room_name}}</p>
+            <p class="text-xs text-white">
                 {!! nl2br(e($bedSummary)) !!}
                 </p>
             @endif
@@ -72,19 +73,20 @@
     @endphp
     <div class="p-4 flex flex-col justify-between text-right">
         <div>
-            <span class="text-gray-600 text-sm font-medium">{{$hotel->rating_score}}</span>
-            <span class="bg-blue-800 text-white text-sm px-1 py-0.5 rounded-md">{{$hotel->rating}}</span>
+            <span class="text-white text-sm font-medium">{{$hotel->rating_score}}</span>
+            <span class="bg-blue-800 text-white text-sm p-1 rounded-md">{{$hotel->rating}}</span>
             <div>
-                <a class="text-xs text-slate-600" href="{{route('hotels.reviews.index',['hotel' => $hotel])}}"> {{$hotel->reviews()->count()}} {{Str::plural('review',$hotel->reviews()->count())}}</a>
+                <a class="text-xs text-white" href="{{route('hotels.reviews.index',['hotel' => $hotel])}}"> {{$hotel->reviews()->count()}} {{Str::plural('review',$hotel->reviews()->count())}}</a>
             </div>
         </div>
         <div>
-            <p class="text-xs text-gray-600">{{$diffInDays}} {{Str::plural('night',$diffInDays)}}, {{request('adults')}} {{Str::plural('adult',request('adults'))}} {{request('children')? ','.request('children').' '.Str::plural('child',request('children')) :''}} </p>
+            <p class="text-xs text-white">{{$diffInDays}} {{Str::plural('night',$diffInDays)}}, {{request('adults')}} {{Str::plural('adult',request('adults'))}} {{request('children')? ','.request('children').' '.Str::plural('child',request('children')) :''}} </p>
             @if($hotel->rooms()->exists())
             <p class="text-md font-bold text-gray-800">JOD {{$hotel->rooms()->latest()->first()->calculatePrice($date1,$date2,request('rooms'))}}</p>
-            <p class="text-xs text-gray-500">+JOD {{round($hotel->rooms()->latest()->first()->calculatePrice($date1,$date2,request('rooms')) * ($hotel->rooms()->latest()->first()->service_charge + $hotel->rooms()->latest()->first()->city_tax))}} taxes and fees</p>
+            <p class="text-xs text-white">+JOD {{round($hotel->rooms()->latest()->first()->calculatePrice($date1,$date2,request('rooms')) * ($hotel->rooms()->latest()->first()->service_charge + $hotel->rooms()->latest()->first()->city_tax))}} taxes and fees</p>
             @endif
         </div>
         {{$slot}}
     </div>
+    
 </x-card>
