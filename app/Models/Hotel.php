@@ -15,7 +15,7 @@ class Hotel extends Model
     use HasFactory;
 
     public $fillable = [
-        'name', 'description', 'rating', 'rating_score', 'Governorate', 
+        'name','manager_id', 'description', 'rating', 'rating_score', 'Governorate', 
         'distance_from_downtown', 'city', 'url', 'stars'
     ];
 
@@ -41,6 +41,10 @@ class Hotel extends Model
 
     public function facilties():HasMany{
         return $this->hasMany(facility::class);
+    }
+
+    public function manager(){
+        return $this->belongsTo(Manager::class);
     }
 
     private function dateRangeFilter(Builder $query,$from = null, $to = null){

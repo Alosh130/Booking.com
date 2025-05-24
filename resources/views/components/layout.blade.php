@@ -94,6 +94,7 @@
       <div class="flex items-center space-x-4">
         @unless(Request::is('login', 'register', 'logout'))
           @auth
+            <span>Mr/Mrs. {{auth()->user()->name}}</span>
             <a href="{{ route('auth.destroy') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="hidden md:inline-block bg-blue-100 dark:bg-slate-700 px-4 py-2 rounded-md hover:bg-blue-200 dark:hover:bg-slate-600 text-blue-800 dark:text-slate-200">Logout</a>
             <form id="logout-form" action="{{ route('auth.destroy') }}" method="POST" class="hidden">@csrf @method('DELETE')</form>
           @else

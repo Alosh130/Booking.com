@@ -15,6 +15,7 @@ return new class extends Migration
         Schema::create('hotels', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->unsignedBigInteger('manager_id');
             $table->text('description');
             $table->decimal('rating',2,1);
             $table->string('rating_score');
@@ -25,6 +26,9 @@ return new class extends Migration
             $table->boolean('recommended')->default(false);
             $table->unsignedBigInteger('stars')->nullable();
             $table->timestamps();
+
+            $table->foreign('manager_id')->references('id')->on('managers')
+            ->onDelete('cascade');
         });
     }
 

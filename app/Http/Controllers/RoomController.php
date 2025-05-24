@@ -6,6 +6,7 @@ use App\Models\Room;
 use Illuminate\Http\Request;
 use App\Models\Hotel;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 class RoomController extends Controller
 {
@@ -22,6 +23,7 @@ class RoomController extends Controller
      */
     public function create(Hotel $hotel)
     {
+        Gate::authorize('createRoom', [Room::class,$hotel]);
         return view('hotel.rooms.create', ['hotel'=>$hotel]);
     }
 

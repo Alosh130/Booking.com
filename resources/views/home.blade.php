@@ -14,11 +14,21 @@
                             required
                            id="destination"
                            name="destination" 
-                           value="{{ request('destination') }}"
+                           value="{{ old('destination') }}"
                            placeholder="Where are you going?"
+                           list="cities"
                            class="block text-slate-400 focus:placeholder:text-slate-500 w-full rounded-md border-slate-300 pl-10 focus:border-blue-500 focus:ring-blue-500 sm:text-sm h-10"
                            autocomplete="off">
+                           <datalist id="cities">
+                            @foreach ($governorates as $gov)
+                                <option value="{{$gov->Governorate}}">
+                            @endforeach
+                            @foreach ($cities as $city)
+                                <option value="{{ $city->city }}">                  
+                            @endforeach
+                            </datalist>
                 </div>
+                
             </div>
 
             {{-- Date Range --}}

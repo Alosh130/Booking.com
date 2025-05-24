@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('managers', function (Blueprint $table) {
             $table->id();
-            $table->string('manager_name');
+            $table->string('company_name');
             $table->string('phone');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();

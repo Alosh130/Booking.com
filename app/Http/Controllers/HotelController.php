@@ -69,9 +69,20 @@ class HotelController extends Controller
         // Again convert back to proper Eloquent collection
         $hotels = Hotel::whereIn('id', $hotels->pluck('id'))->get();
     }
+    $cities = Hotel::select( 'city')
+        ->whereNotNull('city')
+        ->distinct()
+        ->limit(5)
+        ->get();
+
+        $governorates = Hotel::select('Governorate')
+        ->whereNotNull('Governorate')
+        ->distinct()
+        ->limit(5)
+        ->get();
 
     return view('hotel.index', [
-        'hotels' => $hotels,
+        'hotels' => $hotels,'cities' => $cities,'governorates' => $governorates
     ]);
 }
 
@@ -99,6 +110,8 @@ class HotelController extends Controller
             'url' => 'nullable|url',
             'stars' => 'required|integer|min:1|max:5'
         ]);
+
+        $data['manager_id'] = $request->user()->manager->id;
 
         Hotel::create($data);
 
@@ -136,4 +149,5 @@ class HotelController extends Controller
     {
         //
     }
+
 }

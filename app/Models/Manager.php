@@ -8,10 +8,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Manager extends Model
 {
     protected $fillable = [
-        'manager_name',
+        'company_name',
         'phone'
     ];
     public function user():BelongsTo{
         return $this->belongsTo(User::class);
+    }
+
+    public function hotels(){
+        return $this->hasMany(Hotel::class);
     }
 }
